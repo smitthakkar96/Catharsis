@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to reborn</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/normalize.min.css">
+</head>
+
+<body>
+    <div class="banner">
+        <div class="banner-content">
+            <h1>Feeling lost or depressed?</h1>
+            <h3>We're here to <span class="listen">listen</span></h3>
+            <button type="button" class="btn btn-red" data-toggle="modal" data-target="#myModal">Talk to me</button>
+        </div>
+    </div>
+    <div class="why">
+        <h1>Why do we do what we do?</h1>
+        <p>Aenean tempus, nisl ut accumsan rhoncus, eros sem rutrum sem, eu imperdiet magna nunc non est. Nam imperdiet dui ut pellentesque auctor. Curabitur dignissim lacinia purus, elementum finibus ipsum ultricies eu. Proin a posuere metus. Duis vel sollicitudin
+            odio, at faucibus massa. Phasellus eu tortor in velit tristique vestibulum. Praesent dictum diam accumsan purus semper placerat. Proin imperdiet ac eros quis maximus. Sed venenatis nisi vitae lectus lobortis varius. Integer a ligula et sem
+            semper viverra.</p>
+        <div class="space-10"></div>
+        <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/142628624&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+    </div>
+    <footer class="footer">
+        <div class="copyright">Copyright © 2017</div>
+    </footer>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Connect to a listener</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="connectForm" method="POST" action="/connect-call">
+                        <input type="text" class="form-control" placeholder="Enter your Mobile Number" name="phone_number" required>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="submit-btn">Submit</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script>
+        $(function() {
+            $('#submit-btn').click(function(e) {
+                $.post('/connect-call', $('#connectForm').serialize(), function(response) {
+                    alert("Successfully Requested");
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
