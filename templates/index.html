@@ -18,11 +18,12 @@
             <button type="button" class="btn btn-red" data-toggle="modal" data-target="#myModal">Talk to me</button>
         </div>
     </div>
-    <div class="why">
-        <h1>Why do we do what we do?</h1>
-        <p>Aenean tempus, nisl ut accumsan rhoncus, eros sem rutrum sem, eu imperdiet magna nunc non est. Nam imperdiet dui ut pellentesque auctor. Curabitur dignissim lacinia purus, elementum finibus ipsum ultricies eu. Proin a posuere metus. Duis vel sollicitudin
-            odio, at faucibus massa. Phasellus eu tortor in velit tristique vestibulum. Praesent dictum diam accumsan purus semper placerat. Proin imperdiet ac eros quis maximus. Sed venenatis nisi vitae lectus lobortis varius. Integer a ligula et sem
-            semper viverra.</p>
+    <div class="why" style="text-align: left">
+        <h1 style="text-align: center">Why do we do what we do?</h1>
+        <p>Catharsis, a process of releasing, and thereby providing relief from,strong and repressed emotions. Depression, Suicide, Anxiety..Mental disorders. In a world where physical diseases are talked about in the open, mental disorders are judged and
+            detested. Here, in Catharsis, we are trying to solve and bring light to the issue of mental health. Virginia Woolfe, Tom Wills, Robin Williams, approximately 1 million people commit suicide every year. 350 million suffer from depression. If
+            only these people could vent their repressed emotions, then maybe..well, maybe we wouldn still have them with us. Suicide takes place in a matter of seconds, and what we need to do is talk to them in those seconds,for it could save their lives.
+        </p>
         <div class="space-10"></div>
         <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/142628624&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
     </div>
@@ -40,7 +41,8 @@
                 </div>
                 <div class="modal-body">
                     <form id="connectForm" method="POST" action="/connect-call">
-                        <input type="text" class="form-control" placeholder="Enter your Mobile Number" name="phone_number" required>
+                        <input type="text" class="form-control" placeholder="Enter your Mobile Number" name="phone_number" required> select Intensity
+                        <input id="slider2" class="form-control" type="range" min="100" max="500" step="50" value="100" />
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -58,7 +60,7 @@
         $(function() {
             $('#submit-btn').click(function(e) {
                 $.post('/connect-call', $('#connectForm').serialize(), function(response) {
-                    alert("Successfully Requested");
+                    alert("You'll recieve a call back from us shortly.'");
                 });
             });
         });
